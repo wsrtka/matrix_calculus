@@ -32,25 +32,6 @@ def print_matrix(matrix):
         print("\t".join(map(str, line)))
 
 
-def ikj_matrix_product(A, B):
-    """Computes the elementwise product of two matrices.
-
-    Args:
-        A (List[List[int]]): first matrice
-        B (List[List[int]]): second matrice
-
-    Returns:
-        List[List[int]]: result of matrix product.
-    """
-    n = len(A)
-    C = [[0 for i in range(n)] for j in range(n)]
-    for i in range(n):
-        for k in range(n):
-            for j in range(n):
-                C[i][j] += A[i][k] * B[k][j]
-    return C
-
-
 def add(A, B):
     """Computes the elementwise sum of two matrices.
 
