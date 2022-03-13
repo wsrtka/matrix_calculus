@@ -69,27 +69,27 @@ def strassenR(A, B, l):
         # Calculating p1 to p7:
         aResult = add(a11, a22)
         bResult = add(b11, b22)
-        p1 = strassenR(aResult, bResult)  # p1 = (a11+a22) * (b11+b22)
+        p1 = strassenR(aResult, bResult, l)  # p1 = (a11+a22) * (b11+b22)
 
         aResult = add(a21, a22)  # a21 + a22
-        p2 = strassenR(aResult, b11)  # p2 = (a21+a22) * (b11)
+        p2 = strassenR(aResult, b11, l)  # p2 = (a21+a22) * (b11)
 
         bResult = subtract(b12, b22)  # b12 - b22
-        p3 = strassenR(a11, bResult)  # p3 = (a11) * (b12 - b22)
+        p3 = strassenR(a11, bResult, l)  # p3 = (a11) * (b12 - b22)
 
         bResult = subtract(b21, b11)  # b21 - b11
-        p4 = strassenR(a22, bResult)  # p4 = (a22) * (b21 - b11)
+        p4 = strassenR(a22, bResult, l)  # p4 = (a22) * (b21 - b11)
 
         aResult = add(a11, a12)  # a11 + a12
-        p5 = strassenR(aResult, b22)  # p5 = (a11+a12) * (b22)
+        p5 = strassenR(aResult, b22, l)  # p5 = (a11+a12) * (b22)
 
         aResult = subtract(a21, a11)  # a21 - a11
         bResult = add(b11, b12)  # b11 + b12
-        p6 = strassenR(aResult, bResult)  # p6 = (a21-a11) * (b11+b12)
+        p6 = strassenR(aResult, bResult, l)  # p6 = (a21-a11) * (b11+b12)
 
         aResult = subtract(a12, a22)  # a12 - a22
         bResult = add(b21, b22)  # b21 + b22
-        p7 = strassenR(aResult, bResult)  # p7 = (a12-a22) * (b21+b22)
+        p7 = strassenR(aResult, bResult, l)  # p7 = (a12-a22) * (b21+b22)
 
         # calculating c21, c21, c11 e c22:
         c12 = add(p3, p5)  # c12 = p3 + p5

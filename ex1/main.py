@@ -46,10 +46,6 @@ def main():
         total = time() - start
         times.append(total)
 
-        print_matrix(A)
-        print('*')
-        print_matrix(B)
-        print('=')
         print_matrix(C)
     
     plt.scatter(range(2, n, 2), times)
