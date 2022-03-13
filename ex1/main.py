@@ -62,8 +62,8 @@ def main():
         plt.ylabel('Czas [ms]')
         plt.show()
     else:
-        A = generate_matrice(i)
-        B = generate_matrice(i)
+        A = generate_matrice(n)
+        B = generate_matrice(n)
         C = strassenR(A, B, l)
 
 
