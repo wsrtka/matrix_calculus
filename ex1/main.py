@@ -24,35 +24,47 @@ def main():
         '-n',
         dest='n',
         default=128,
-        help='Maximum matrice size for tests.',
+        help='Maximum matrice size for tests if measuring time. Matrix size otherwise.',
         metavar='n'
+    )
+    parser.add_option(
+        '-t',
+        dest='t',
+        action='store_true',
+        help='Specify whether we are measuring time or flops.',
+        metavar='t'
     )
     options, args = parser.parse_args()
 
     l = int(options.l)
     n = int(options.n)
+    t = bool(options.t)
 
-    times = []
-    flops = []
+    if t:
+        times = []
 
-    for i in range(2, n, 2):
+        for i in range(2, n, 2):
+            A = generate_matrice(i)
+            B = generate_matrice(i)
+
+            start = time()
+            
+            C = strassenR(A, B, l)
+            
+            total = time() - start
+            times.append(total)
+
+            print_matrix(C)
+        
+        plt.scatter(range(2, n, 2), times)
+        plt.title('Czas wykonania programu w zalezności od wielkości macierzy.')
+        plt.xlabel('Wieklość macierzy')
+        plt.ylabel('Czas [ms]')
+        plt.show()
+    else:
         A = generate_matrice(i)
         B = generate_matrice(i)
-
-        start = time()
-        
         C = strassenR(A, B, l)
-        
-        total = time() - start
-        times.append(total)
-
-        print_matrix(C)
-    
-    plt.scatter(range(2, n, 2), times)
-    plt.title('Czas wykonania programu w zalezności od wielkości macierzy.')
-    plt.xlabel('Wieklość macierzy')
-    plt.ylabel('Czas [ms]')
-    plt.show()
 
 
 if __name__ == '__main__':
