@@ -52,7 +52,7 @@ def main():
     plt.title('Czas wykonania programu w zalezności od wielkości macierzy.')
     plt.xlabel('Wieklość macierzy')
     plt.ylabel('Czas [ms]')
-    plt.plot()
+    plt.show()
 
 
 if __name__ == '__main__':
