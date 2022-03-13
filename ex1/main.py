@@ -1,6 +1,12 @@
 """Main module for running matrix algorithms."""
 
 from optparse import OptionParser
+from time import time
+
+import matplotlib.pyplot as plt
+
+from utils import generate_matrice, print_matrix
+from matrix import strassenR
 
 
 def main():
@@ -26,8 +32,31 @@ def main():
     l = int(options.l)
     n = int(options.n)
 
+    times = []
+    flops = []
+
     for i in range(2, n, 2):
-        A = ...
+        A = generate_matrice(i)
+        B = generate_matrice(i)
+
+        start = time()
+        
+        C = strassenR(A, B, l)
+        
+        total = time() - start
+        times.append(total)
+
+        print_matrix(A)
+        print('*')
+        print_matrix(B)
+        print('=')
+        print_matrix(C)
+    
+    plt.scatter(range(2, n, 2), times)
+    plt.title('Czas wykonania programu w zalezności od wielkości macierzy.')
+    plt.xlabel('Wieklość macierzy')
+    plt.ylabel('Czas [ms]')
+    plt.plot()
 
 
 if __name__ == '__main__':
