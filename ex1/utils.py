@@ -1,4 +1,6 @@
-"""Module containing useful functions."""
+"""Module containing utility functions."""
+
+import random
 
 
 def read(filename):
@@ -66,3 +68,13 @@ def subtract(A, B):
         for j in range(0, n):
             C[i][j] = A[i][j] - B[i][j]
     return C
+
+
+def generate_matrice(n):
+    """Generate matrice with random values.
+
+    Args:
+        n (int): Size of matrice to generate.
+    """
+    matrice = [[random.randint(-10, 10) for i in range(n)] for j in range(n)]
+    return matrice
