@@ -1,6 +1,11 @@
 """Module containing matrix multiplication algorithms."""
+import numpy
 
-from utils import add, subtract
+from matrix_calculus.common import (
+    add,
+    print_matrix,
+    subtract,
+)
 
 
 def ikj_matrix_product(A, B):
