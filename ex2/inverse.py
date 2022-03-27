@@ -38,14 +38,8 @@ def inverse(A: List[List[float]], l: int) -> List[List[float]]:
     i22 = get_identity_matrix(new_size)
 
     # dividing the matrices in 4 sub-matrices:
-    for i in range(
-            0,
-            new_size
-            ):
-        for j in range(
-                0,
-                new_size
-                ):
+    for i in range(0, new_size):
+        for j in range(0, new_size):
             a11[i][j] = A[i][j]  # top left
             a12[i][j] = A[i][j + new_size]  # top right
             a21[i][j] = A[i + new_size][j]  # bottom left
@@ -62,7 +56,9 @@ def inverse(A: List[List[float]], l: int) -> List[List[float]]:
 
     # Step 3 - from the second row subtract the new first row elements multiplied by the bot-left matrix
     a21_new = subtract(a21, strassenR(a21, a11_new, l))
-    s22 = subtract(a22, strassenR(a21, a12_new, l))  # this is the symbol used in the conspect
+    s22 = subtract(
+        a22, strassenR(a21, a12_new, l)
+    )  # this is the symbol used in the conspect
     i21_new = subtract(i21, strassenR(a21, i11_new, l))
     i22_new = subtract(i22, strassenR(a21, i12_new, l))
 
