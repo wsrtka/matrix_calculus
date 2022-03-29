@@ -1,7 +1,7 @@
 """Module containing matrix multiplication algorithms."""
 import numpy
 
-from matrix_calculus.common import (
+from common import (
     add,
     print_matrix,
     subtract,

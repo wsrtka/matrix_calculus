@@ -3,12 +3,12 @@ from time import time
 
 from matplotlib import pyplot as plt
 
-from matrix_calculus.ex1.matrix import strassenR
-from matrix_calculus.common import (
+from ex1.matrix import strassenR
+from common import (
     generate_matrice,
     print_matrix,
 )
-from matrix_calculus.ex2.inverse import inverse
+from ex2.inverse import inverse
 
 
 def main():
@@ -43,6 +43,8 @@ def main():
 
     if t:
         times = []
+        inverse.counter = 0
+        strassenR.counter = 0
 
         for i in range(2, n, 2):
             A = generate_matrice(i)
@@ -55,6 +57,7 @@ def main():
             times.append(total)
 
         plt.plot(range(2, n, 2), times)
+        plt.plot(range(2, n, 2), [(n ** 2) / 12500 for n in range(2, n, 2)])
         plt.title("Czas wykonania programu w zalezności od wielkości macierzy.")
         plt.xlabel("Wielkość macierzy")
         plt.ylabel("Czas [ms]")

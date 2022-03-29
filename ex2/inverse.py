@@ -3,8 +3,8 @@ from typing import List
 
 import numpy as np
 
-from matrix_calculus.ex1.matrix import strassenR
-from matrix_calculus.common import subtract, get_empty_matrix, get_identity_matrix
+from ex1.matrix import strassenR
+from common import subtract, get_empty_matrix, get_identity_matrix
 
 
 def inverse(A: List[List[float]], l: int) -> List[List[float]]:
