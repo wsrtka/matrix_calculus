@@ -60,9 +60,36 @@ def main():
         plt.ylabel("Czas [ms]")
         plt.show()
     else:
-        A = generate_matrice(n)
-        C = inverse(A, l)
-        print_matrix(C)
+        adds = []
+        subs = []
+        times = []
+
+        for i in range(2, n, 2):
+            A = generate_matrice(i)
+            inverse.counter = 0
+            strassenR.counter = 0
+            C = inverse(A, l)
+            adds.append(strassenR.counter * 12)
+            subs.append(strassenR.counter * 6 + inverse.counter * 8)
+            times.append(strassenR.counter * 7 + inverse.counter * 16)
+
+        plt.plot(range(2, n, 2), adds)
+        plt.title("Liczba operacji dodawania w zalezności od wielkości macierzy.")
+        plt.xlabel("Wielkość macierzy")
+        plt.ylabel("Liczba operacji")
+        plt.show()
+
+        plt.plot(range(2, n, 2), subs)
+        plt.title("Liczba operacji odejmowania w zalezności od wielkości macierzy.")
+        plt.xlabel("Wielkość macierzy")
+        plt.ylabel("Liczba operacji")
+        plt.show()
+
+        plt.plot(range(2, n, 2), times)
+        plt.title("Liczba operacji mnozenia w zalezności od wielkości macierzy.")
+        plt.xlabel("Wielkość macierzy")
+        plt.ylabel("Liczba operacji")
+        plt.show()
 
 
 if __name__ == "__main__":

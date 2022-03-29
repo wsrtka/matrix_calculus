@@ -18,6 +18,9 @@ def inverse(A: List[List[float]], l: int) -> List[List[float]]:
     Returns:
         List[List[float]]: result of multiplication.
     """
+    # 8 odejmowań
+    # 16 mnozen
+    inverse.counter += 1
     n = len(A)
 
     if n == 1:

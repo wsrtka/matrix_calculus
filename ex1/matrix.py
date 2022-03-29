@@ -38,6 +38,10 @@ def strassenR(A, B, l):
     Returns:
         List[List[int]]: result of multiplication.
     """
+    # 12 dodawań
+    # 7 mnozen
+    # 6 odejmowań
+    strassenR.counter += 1
     n = len(A)
 
     if n <= l:
