@@ -5,7 +5,7 @@ from time import time
 
 import matplotlib.pyplot as plt
 
-from utils import generate_matrice, print_matrix
+from matrix_calculus.common import generate_matrice, print_matrix
 from matrix import strassenR
 
 
@@ -53,7 +53,15 @@ def main():
             
             total = time() - start
             times.append(total)
-
+            print(
+                "\n\n\n" + 25 * "=" + "A MATRIX" + 25 * "="
+                )
+            print_matrix(
+                A
+                )
+            print("\n\n\n" + 25 * "=" + "B MATRIX" + 25 * "=")
+            print_matrix(B)
+            print("\n\n\n" + 25 * "=" + "C MATRIX" + 25 * "=")
             print_matrix(C)
         
         plt.scatter(range(2, n, 2), times)
